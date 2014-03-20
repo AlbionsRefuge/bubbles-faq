@@ -1,0 +1,47 @@
+General Questions
+===
+
+### Did we really learn anything?
+
+Hopefully you did!  
+
+This project is aimed at new JavaScript coders. The goal is give you a feel for the language and have you end up with something fun at the end, fun enough that you will be interested in learning more. 
+
+##### You have learned several basic principles of coding in this short project
+
+You've learned:
+
+- that data can be a **string**, like your name, or a collection of items, like the color **arrays**. 
+- that you can give your data a name so that it will be easier for you to work with.
+- that you can write code to find the **length** of a string, to do **math** and to **compare** two things
+- that there are reusable blocks of code called **functions** that do what they are meant to whenever you call them
+- that you can use **if/else** statements to change what happens in your program
+
+That is a lot!
+ 
+##### Using external resources is normal practice in professional coding 
+
+You may have noticed that your final result was doing a lot more than you probably expected. 
+
+There isn't much sense re-inventing the wheel. The same goes for many coding tasks. There are [many popular libraries](http://en.wikipedia.org/wiki/List_of_JavaScript_libraries) of JavaScript code that will make life easier for you. You will see a link to the popular [jQuery](http://en.wikipedia.org/wiki/JQuery) library in your `index.html` tab.
+
+##### Beauty of customization
+
+Maciej, what were you thinking should go in here?
+
+### Where is all the code that is making this happen?
+
+Check your `index.html` tab, you will see links there that pull in additional code from other places. Notice how there are several `<script>` tags. Those are how you can gain access to other scripts that are external to your code.
+
+You should see links out to three external files plus your own main.js file.
+
+- main.js
+- code.jquery.com/jquery-1.10.2.min.js
+- http://s3.amazonaws.com/codecademy-content/courses/hour-of-code/js/alphabet.js
+- http://s3.amazonaws.com/codecademy-content/courses/hour-of-code/js/bubbles.js
+
+If you'd like to see what those files contain, take the URL and go to it with your browser, it will display as plain text. You might think that it is a bit messy and hard to read. To see the code in an easier to read format, copy all of the code and paste it into a code beautifying tool like http://jsbeautifier.org/
+
+### I want to learn how this really works.
+
+Good!  Go to the **Behind the Scenes** section of these FAQ posts :)
