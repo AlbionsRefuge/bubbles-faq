@@ -5,7 +5,7 @@ General Questions
 
 Hopefully you did!  
 
-This project is aimed at new JavaScript coders. The goal is give you a feel for the language and have you end up with something fun at the end, fun enough that you will be interested in learning more. 
+This project is aimed at new JavaScript coders. The goal is to give you a feel for the language and have you end up with something fun at the end, fun enough that you will be interested in learning more. 
 
 ##### You have learned several basic principles of coding in this short project
 
@@ -31,7 +31,7 @@ Maciej, what were you thinking should go in here?
 
 ### Where is all the code that is making this happen?
 
-Check your `index.html` tab, you will see links there that pull in additional code from other places. Notice how there are several `<script>` tags. Those are how you can gain access to other scripts that are external to your code.
+Check your `index.html` tab, you will see links there that pull in additional code from other places. Notice how there are several `<script>` tags. Those tags are how you can gain access to other scripts that are external to your code.
 
 You should see links out to three external files plus your own main.js file.
 
