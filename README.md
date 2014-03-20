@@ -20,7 +20,7 @@ Create four documents, one for each of the following categories.
   - a) go to the **Behind the Scenes** section of FAQ :)
 
 ## Behind the Scenes
-- [ ] How does alphabet.js work? [I think that my answer to this questions was pretty complex, any ideas what can we add?]
+- [x] How does alphabet.js work? [I think that my answer to this questions was pretty complex, any ideas what can we add?]
 - [ ] How does bounceBubbles() know what to do?
 - [ ] What does drawName() really do?
 
