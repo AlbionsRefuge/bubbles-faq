@@ -33,6 +33,6 @@ Create four documents, one for each of the following categories.
 ## Customization
 - [x] Can I make more colors?
 - [ ] Can I have more shapes? [Maciej will prepare example with triangles, we will link course about drawing with JavaScript]
-- [ ] Can I change the font size?
-- [ ] Can I change size of the dots?
-- [ ] Any more tricks? Yes, color fading!
+- [x] Can I change the font size?
+- [x] Can I change size of the dots?
+- [x] Any more tricks? Yes, color fading!
