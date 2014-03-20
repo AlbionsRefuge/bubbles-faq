@@ -3,9 +3,9 @@ Behind the Scenes
 
 ### How does alphabet.js work?
 
-In alphabet.js is defined only one object called `document.alphabet`.
+In alphabet.js there is defined only one object called `document.alphabet`.
 
-`document.alphabet` is collection of objects (representing single characters) with names coded in hexadecimal values (in pattern `A + hexValue`). Code of script is organized in this manner:
+`document.alphabet` is a collection of objects (representing single characters) with names coded in hexadecimal values (in the pattern `A + hexValue`). The code in this script is organized in this manner:
 ```
 document.alphabet = {
     A79: {
@@ -32,16 +32,16 @@ document.alphabet = {
 
 [Here you can find list with hexadecimal value of every printable character][1]
 
-`A79` - character with hex code `79` -> `y`
-`A78` - character with hex code `78` -> `x`
-`A77` - character with hex code `77` -> `w`
-`A3d` - character with hex code `3d` -> `=`
+- `A79` - character with hex code `79` represents a `y`
+- `A78` - character with hex code `78` represents an `x`
+- `A77` - character with hex code `77` represents a `w`
+- `A3d` - character with hex code `3d` represents an `=`
 
 Every letter has two properties, `W` and `P`.
 
-`W` stands for "width". Higher value of `W` -> character is broader. That is why `W` of `A3d` (`=`) is so small.
+`W` stands for "width". A higher value of `W` means the character is broader. That is why `W` of `A21` (`!`) is so small (`35`) and `A51` (`Q`) is so large (`125`).
 
-`P` is collection of points (single dots on your animation). Every point has 4 values, for example `[64, 89, 9, -102]`. First two values are coordinates (x = `64`, y = `89`), they have an impact on where dot is located. Third value (`9`) specifies size of the dot. Last value (`-102`) is not used in our project, but originally it was defining tone of selected by user color (hue).
+`P` is a collection of points (single dots on your animation). Every point has 4 values, for example `[64, 89, 9, -102]`. First two values are coordinates (x = `64`, y = `89`), they have an impact on where the dot is located. Third value (`9`) specifies size of the dot. Last value (`-102`) is not used in our project, but originally it was defining the tone selected by user color (hue).
 
 ### How does bounceBubbles() know what to do?
 
