@@ -7,13 +7,13 @@ This is the current Plan. Plans change. Changes will be reflected here.
 Create four (maybe five) documents, one for each of the following categories.
 
 
-## General Questions
+## [General Questions](https://github.com/AlbionsRefuge/bubbles-faq/blob/master/general-questions.md)
 characters so far: 2963
 - [x] Did we really learn anything? 
 - [x] Where is all the code that is making this happen?
 - [x] I want to learn how this really works.
 
-## Behind the Scenes
+## [Behind the Scenes](https://github.com/AlbionsRefuge/bubbles-faq/blob/master/behind%20the%20scenes.md)
 characters so far: 2463
 - [x] How does alphabet.js work? [I think that my answer to this questions was pretty complex, any ideas what can we add?]
 - [ ] How does bounceBubbles() know what to do?
@@ -26,7 +26,7 @@ characters so far: 0
 - [ ] Can I have more than one line of text?
 [I do not know if it should be here or in customization, but this is more about implementing, not changing script]
 
-## Customization
+## [Customization](https://github.com/AlbionsRefuge/bubbles-faq/blob/master/customization.md)
 characters so far: 6445
 - [x] Can I make more colors?
 - [ ] Can I have more shapes? [Maciej will prepare example with triangles, we will link course about drawing with JavaScript]
