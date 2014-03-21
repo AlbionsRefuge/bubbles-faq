@@ -4,7 +4,7 @@ Animate Your Name - FAQ staging area
 ## The Plan
 This is the current Plan. Plans change. Changes will be reflected here.
 
-Create four documents, one for each of the following categories.
+Create four (maybe five) documents, one for each of the following categories.
 
 
 ## General Questions
