@@ -27,7 +27,7 @@ There isn't much sense re-inventing the wheel. The same goes for many coding tas
 
 ##### Beauty of customization
 
-Maciej, what were you thinking should go in here?
+I was thinking that we should wrote few lines about the fact that you can always make improvements to base code. You can dig into scripts and change single values, like size of the dots.
 
 ### Where is all the code that is making this happen?
 
