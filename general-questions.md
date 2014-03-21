@@ -27,7 +27,7 @@ There isn't much sense re-inventing the wheel. The same goes for coding tasks. T
 
 ##### Beauty of customization
 
-I was thinking that we should wrote few lines about the fact that you can always make improvements to base code. You can dig into scripts and change single values, like size of the dots.
+You will have learned a little bit about customization too. Remember how easy it was to change the look of your bubbles just by picking different color and shape names? You can always make improvements to your base code. You can dig into scripts and change single values, like the size of the dots. Read more on that in the [Customization](https://github.com/AlbionsRefuge/bubbles-faq/blob/master/customization.md) section.
 
 ### Where is all the code that is making this happen?
 
@@ -44,4 +44,4 @@ If you'd like to see what those files contain, take the URL and go to it with yo
 
 ### I want to learn how this really works.
 
-Good!  Go to the **Behind the Scenes** section of these FAQ posts :)
+Good!  Go to the [Behind the Scenes](https://github.com/AlbionsRefuge/bubbles-faq/blob/master/behind the scenes.md)  section of these FAQ posts :)
