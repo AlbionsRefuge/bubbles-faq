@@ -8,17 +8,10 @@ Create four documents, one for each of the following categories.
 
 
 ## General Questions
-characters so far: 2645
-- [ ] Did we really learn anything?
-  - a) you have learned basic principles of coding
-  - b) using external resources is normal practice in professional coding
-[as a example we can give jQuery]
-  - c) beauty of customization
+characters so far: 2963
+- [x] Did we really learn anything? 
 - [x] Where is all the code that is making this happen?
-  - a) few lines about 'how to use external scripts' and `<script>` tag
-  - b) list of used resources
 - [x] I want to learn how this really works.
-  - a) go to the **Behind the Scenes** section of FAQ :)
 
 ## Behind the Scenes
 characters so far: 2463
