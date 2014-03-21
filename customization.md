@@ -49,13 +49,13 @@ if (document.alphabet.hasOwnProperty(cc_hex)) {
 }
 ```
 
-`point[0]` corresponds to the x coordinate of every single point, `point[1]` is a y coordinate and `document.alphabet[cc_hex].W` states for a width of our whole letter. These three values correspond to the size of our font. So we have to modify them.
+`point[0]` corresponds to the x coordinate of every single point, `point[1]` is a y coordinate and `document.alphabet[cc_hex].W` states for a width of our whole letter. These three values affects the size of our font. So we have to modify them.
 
-It is very important to understand that we should keep correct proportions. We do not want to make weird looking animation when every letter is 3 times wider than normal but height of letter is without any change.
+It is very important to understand that we should keep correct proportions. We do not want to make weird looking animation when every letter is three times wider than normal but height of letter is without any change.
 
-To make sure that we are keeping ratio we will create special variable to store multiplier - `fontSizeMultiplier`. It will work in very intuitive way. If the multiplier is equal `2` than letters are two times larger. If it is equal `0.5` than they are two times smaller.
+To make sure that we are keeping aspect ratio we will create special variable to store multiplier - `fontSizeMultiplier`. It will work in very intuitive way. If the multiplier is equal `2` then letters are two times larger. If it is equal `0.5` then they are two times smaller.
 
-To reach our goal we simply have to define our variable and assign to it desired value (in our example - `0.5`) and than multiply every decisive variable (`point[0]`, `point[1]` and `document.alphabet[cc_hex].W`). This is the code after adjustments:
+To reach our goal we simply have to define our variable and assign to it desired value (in our example - `0.5`) and then multiply every decisive variable (`point[0]`, `point[1]` and `document.alphabet[cc_hex].W`). This is the code after adjustments:
 
 ```
 if (document.alphabet.hasOwnProperty(cc_hex)) {
@@ -106,7 +106,7 @@ if (document.alphabet.hasOwnProperty(cc_hex)) {
 }
 ```
 
-As you should know from [how does alphabet.js work?][1] third value (with index `2`, because we are counting from `0`) of every `point` object corresponds to the size of the dot. So we have to multiply or add desired value to `point[2]`. If you changes size of the font then you probably want to multiply it by `fontSizeMultiplier`, this is very good idea! But if you want to change only size of the dots - feel free to do that as well. Take a look at this improved code:
+As you should know from [how does alphabet.js work?][1] third value (with index `2`, because we are counting from `0`) of every `point` object corresponds to the size of the dot. So we have to multiply or add desired value to `point[2]`. If you change size of the font then you probably want to multiply it by `fontSizeMultiplier`, this is very good idea! But if you want to change only size of the dots - feel free to do that as well. Take a look at this improved code:
 
 ```
 if (document.alphabet.hasOwnProperty(cc_hex)) {
