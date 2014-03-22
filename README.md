@@ -33,3 +33,4 @@ characters so far: 6445
 - [x] Can I change the font size?
 - [x] Can I change size of the dots?
 - [x] Any more tricks? Yes, color fading!
+- [ ] How to resize animation?
