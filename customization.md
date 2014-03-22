@@ -95,7 +95,7 @@ into:
 point[2] * fontSizeMultiplier,
 ```
 
-But if you want to change only size of the dots - feel free to do that as well. If you want to make size two times bigger your code should look like this:
+But if you want to change only size of the dots - feel free to do that as well. If you want to make dots two times bigger your code should look like this:
 
 ```
 if (document.alphabet.hasOwnProperty(cc_hex)) {
