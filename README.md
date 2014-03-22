@@ -19,7 +19,7 @@ characters so far: 2463
 - [ ] How does bounceBubbles() know what to do?
 - [ ] What does drawName() really do?
 
-## Outside Implementation
+## [Outside Implementation][https://github.com/AlbionsRefuge/bubbles-faq/blob/master/implementation.md]
 characters so far: 2046
 - [x] How can I make bouncing bubbles work away from Codecademy?
 - [x] Bouncing bubbles does not work from my hard drive [offline]
