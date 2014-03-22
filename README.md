@@ -20,9 +20,9 @@ characters so far: 2463
 - [ ] What does drawName() really do?
 
 ## Outside Implementation
-characters so far: 0
-- [ ] How can I make bouncing bubbles work away from Codecademy?
-- [ ] Bouncing bubbles does not work from my hard drive [offline]
+characters so far: 2046
+- [x] How can I make bouncing bubbles work away from Codecademy?
+- [x] Bouncing bubbles does not work from my hard drive [offline]
 - [ ] Can I have more than one line of text?
 [I do not know if it should be here or in customization, but this is more about implementing, not changing script]
 
