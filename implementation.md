@@ -24,7 +24,7 @@ and put them in same directory as your `main.js` and `html` files are placed. Yo
 
 Last step is changing links in your `html` file from absolute links to relational links in this way:
 
-- `<script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>` into `<script type="text/javascript" src="jquery.js"></script>
+- `<script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>` into `<script type="text/javascript" src="jquery.js"></script>`
 - `<script type="text/javascript" src="http://s3.amazonaws.com/codecademy-content/courses/hour-of-code/js/alphabet.js"></script>` into `<script type="text/javascript" src="alphabet.js"></script>`
 - `<script type="text/javascript" src="http://s3.amazonaws.com/codecademy-content/courses/hour-of-code/js/bubbles.js"></script>` into `<script type="text/javascript" src="bubbles.js"></script>`
 
