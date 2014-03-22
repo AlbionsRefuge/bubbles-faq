@@ -84,29 +84,18 @@ if (document.alphabet.hasOwnProperty(cc_hex)) {
 }
 ```
 
-### Can I change size of the dots?
+#### Can I change size of the dots?
 
-This is very simmilar operation as described in the post above. We will work on the same piece of code from `bubbles.js`:
-
+As you should know from [how does alphabet.js work?][1] third value (with index `2`, because we are counting from `0`) of every `point` object corresponds to the size of the dot. So we have to multiply or add desired value to `point[2]`. If you change size of the font then you probably want to multiply it by `fontSizeMultiplier`, this is very good idea! You have only to change this parameter of `g.push` method:
 ```
-if (document.alphabet.hasOwnProperty(cc_hex)) {
-    var chr_data = document.alphabet[cc_hex].P;
-    var bc = letterColors[ix % letterColors.length];
-
-    for (var i = 0; i < chr_data.length; ++i) {
-        point = chr_data[i];
-
-        g.push(new Point(point[0] + offset,
-            point[1],
-            0.0,
-            point[2],
-            makeColor(bc, point[3])));
-    }
-    offset += document.alphabet[cc_hex].W;
-}
+point[2],
+```
+into:
+```
+point[2] * fontSizeMultiplier,
 ```
 
-As you should know from [how does alphabet.js work?][1] third value (with index `2`, because we are counting from `0`) of every `point` object corresponds to the size of the dot. So we have to multiply or add desired value to `point[2]`. If you change size of the font then you probably want to multiply it by `fontSizeMultiplier`, this is very good idea! But if you want to change only size of the dots - feel free to do that as well. Take a look at this improved code:
+But if you want to change only size of the dots - feel free to do that as well. If you want to make size two times bigger your code should look like this:
 
 ```
 if (document.alphabet.hasOwnProperty(cc_hex)) {
@@ -128,8 +117,6 @@ if (document.alphabet.hasOwnProperty(cc_hex)) {
     offset += document.alphabet[cc_hex].W;
 }
 ```
-
-That was not so hard, right?
 
 
 ### Any more tricks? Yes, color fading!
