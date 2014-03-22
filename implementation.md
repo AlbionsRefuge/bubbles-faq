@@ -16,7 +16,7 @@ You should remember that:
 
 This problem is caused by external files, your browser can not use them in offline mode which is used when you are opening `html` file from your hard drive. To fix that you have to download all external files:
 
-- code.jquery.com/jquery-1.10.2.min.js
+- //code.jquery.com/jquery-1.10.2.min.js
 - http://s3.amazonaws.com/codecademy-content/courses/hour-of-code/js/alphabet.js
 - http://s3.amazonaws.com/codecademy-content/courses/hour-of-code/js/bubbles.js
 
