@@ -121,7 +121,7 @@ if (document.alphabet.hasOwnProperty(cc_hex)) {
 
 ### Any more tricks? Yes, color fading!
 
-In [How does alphabet.js work?][1] I mentioned about one mysterious value of every point - the fourth value coresponding to hue of a color. But as I said, this option was not used in our projects, but why shouldn't we turn it on?
+In [How does alphabet.js work?][1] I mentioned about one mysterious value of every point - the fourth value coresponding to hue of a color. But as I said there, this option was not used in our projects, but there is no reason we can't turn it on if we want to!
 
 Function `makeColor` is responsible for making color (who would have guessed?) so let's look at it closer:
 
@@ -134,7 +134,7 @@ function makeColor(hslList, fade) {
 }
 ```
 
-You probably noticed a few comments. We only have to uncomment code and our animations will gain some depth!
+You probably noticed a few comments. We only have to uncomment the code and our animations will gain some depth!
 
 ```
 function makeColor(hslList, fade) {
@@ -147,9 +147,9 @@ function makeColor(hslList, fade) {
 
 ###How to resize animation?
 
-If you want to use this animation in your own project then predefined size (500px x 1000px) might be unsuitable. To resize animation (`canvas` element in fact) you have to change only two parts of `bubbles.js`.
+If you want to use this animation in your own project then the predefined size (500px x 1000px) might be unsuitable. To resize the animation (`canvas` element in fact) you have to change only two parts of `bubbles.js`.
 
-First one is part of the code that is executed just when script is loaded:
+First one is part of the code that is executed just when the script is loaded:
 
 ```
 var canvas = $("#myCanvas");
@@ -174,11 +174,11 @@ function updateCanvasDimensions() {
 }
 ```
 
-Important note - values in both snippetes should be the same.
+Important note - values in both snippets should be the same.
 
 
 
-More colors, bigger dots, and fade!
+An example of more colors, bigger dots, and fading!
 
 <img src="http://i.imgur.com/tqGoS0o.png" title="Cotton Candy"/>
 
