@@ -147,6 +147,6 @@ function makeColor(hslList, fade) {
 
 More colors, bigger dots, and fade!
 
-<a href="http://imgur.com/tqGoS0o"><img src="http://i.imgur.com/tqGoS0o.png" title="Hosted by imgur.com"/></a>
+<img src="http://i.imgur.com/tqGoS0o.png" title="Cotton Candy"/>
 
   [1]: linkToHowDoesWorkAlphabet.js
