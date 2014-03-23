@@ -182,4 +182,4 @@ More colors, bigger dots, and fade!
 
 <img src="http://i.imgur.com/tqGoS0o.png" title="Cotton Candy"/>
 
-  [1]: linkToHowDoesWorkAlphabet.js
+  [1]: https://github.com/AlbionsRefuge/bubbles-faq/blob/master/behind%20the%20scenes.md#how-does-alphabetjs-work
