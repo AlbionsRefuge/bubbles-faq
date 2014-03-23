@@ -3,13 +3,14 @@ Outside Implementation
 
 ### How can I make bouncing bubbles work away from Codecademy?
 
-Our animation is based on external script files. You can use them outside codecademy, but you should not claim that you wrote them or trying to sell them.
+Our animation is based on external script files. You can use them outside Codecademy, but you should not claim that you wrote them or try to sell them.
 
-It is very easy to accomplish. You should create files called `main.js` and `index.html`. Then you have to copy code from your codecademy project (`index.html` and `main.js` tabs) and paste inside corresponding newly created files.
+It is very easy to accomplish. You should create files called `main.js` and `index.html`. Then you have to copy code from your Codecademy project (`index.html` and `main.js` tabs) and paste it inside corresponding newly created files.
 
 You should remember that:
 
-- you should not change name of script file (`main.js`) but you can change name of `html` file (for example to `animation.html`)
+- you should not change the name of your script file (`main.js`) unless you also change the file's name in your `.html` file 
+- you can change name of your `html` file (for example to `animation.html`)
 - both files have to be in the same directory (for example `root`, `public_html` or `desktop`)
 
 #### Bouncing bubbles does not work from my hard drive, what to do?
