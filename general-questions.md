@@ -7,7 +7,7 @@ Hopefully you did!
 
 This project is aimed at new JavaScript coders. The goal is to give you a feel for the language and have you end up with something fun at the end, fun enough that you will be interested in learning more. 
 
-##### You have learned several basic principles of coding in this short project
+#### You have learned several basic principles of coding in this short project
 
 You've learned that:
 
@@ -19,13 +19,13 @@ You've learned that:
 
 That is quite a lot!
  
-##### Using external resources is normal practice in professional coding 
+#### Using external resources is normal practice in professional coding 
 
 You may have noticed that your final result was doing a lot more than you probably expected. 
 
 There isn't much sense re-inventing the wheel. The same goes for coding tasks. There are [many  libraries](http://en.wikipedia.org/wiki/List_of_JavaScript_libraries) of JavaScript code that will make life easier for you. You will see a link to the popular [jQuery](http://en.wikipedia.org/wiki/JQuery) library in your `index.html` tab.
 
-##### Beauty of customization
+#### Beauty of customization
 
 You will have learned a little bit about customization too. Remember how easy it was to change the look of your bubbles just by picking different color and shape names? You can always make improvements to your base code. You can dig into scripts and change single values, like the size of the dots. Read more on that in the [Customization](https://github.com/AlbionsRefuge/bubbles-faq/blob/master/customization.md) section.
 
