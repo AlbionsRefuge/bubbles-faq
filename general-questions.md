@@ -23,7 +23,7 @@ That is quite a lot!
 
 You may have noticed that your final result was doing a lot more than you probably expected. 
 
-There isn't much sense re-inventing the wheel. The same goes for coding tasks. There are [many popular libraries](http://en.wikipedia.org/wiki/List_of_JavaScript_libraries) of JavaScript code that will make life easier for you. You will see a link to the popular [jQuery](http://en.wikipedia.org/wiki/JQuery) library in your `index.html` tab.
+There isn't much sense re-inventing the wheel. The same goes for coding tasks. There are [many  libraries](http://en.wikipedia.org/wiki/List_of_JavaScript_libraries) of JavaScript code that will make life easier for you. You will see a link to the popular [jQuery](http://en.wikipedia.org/wiki/JQuery) library in your `index.html` tab.
 
 ##### Beauty of customization
 
