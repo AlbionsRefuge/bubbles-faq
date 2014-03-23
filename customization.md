@@ -61,7 +61,7 @@ To reach our goal we simply have to define our variable and assign to it desired
 if (document.alphabet.hasOwnProperty(cc_hex)) {
 
     // definition of our variable
-    var fontSizeMultiplier = 0.5
+    var fontSizeMultiplier = 0.5;
 
     var chr_data = document.alphabet[cc_hex].P;
     var bc = letterColors[ix % letterColors.length];
