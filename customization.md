@@ -145,6 +145,39 @@ function makeColor(hslList, fade) {
 }
 ```
 
+###How to resize animation?
+
+If you want to use this animation in your own project then predefined size (500px x 1000px) might be unsuitable. To resize animation (`canvas` element in fact) you have to change only two parts of `bubbles.js`.
+
+First one is part of the code that is executed just when script is loaded:
+
+```
+var canvas = $("#myCanvas");
+// change canvasHeight and canvasWidth to desired values
+var canvasHeight = 500;
+var canvasWidth = 1000;
+```
+
+Second one is `updateCanvasDimensions` function:
+
+```
+function updateCanvasDimensions() {
+    canvas.attr({
+        // change height and width to desired value
+        height: 500,
+        width: 1000
+    });
+    canvasWidth = canvas.width();
+    canvasHeight = canvas.height();
+
+    draw();
+}
+```
+
+Important note - values in both snippetes should be the same.
+
+
+
 More colors, bigger dots, and fade!
 
 <img src="http://i.imgur.com/tqGoS0o.png" title="Cotton Candy"/>
