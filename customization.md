@@ -27,7 +27,7 @@ Now you can use your new color in your `letterColors` array. If you want more th
 [Maciej will prepare example with triangles, we will link course about drawing with JavaScript]
 
 ### Can I change the font size?
-Of course you can! But you will have to dig into `bubbles.js` file and change it a bit. Before we start it is highly recommended to read: [how does alphabet.js work?][1].
+Of course you can! But you will have to dig into `bubbles.js` file and change it a bit. Before we start it is highly recommended to read: [How does alphabet.js work?][1].
 
 This piece of code in `bubbles.js` is responsible for drawing all the dots in our project:
 
@@ -49,11 +49,11 @@ if (document.alphabet.hasOwnProperty(cc_hex)) {
 }
 ```
 
-`point[0]` corresponds to the x coordinate of every single point, `point[1]` is a y coordinate and `document.alphabet[cc_hex].W` states for a width of our whole letter. These three values affects the size of our font. So we have to modify them.
+`point[0]` corresponds to the x coordinate of each point, `point[1]` is the y coordinate and `document.alphabet[cc_hex].W` is the width of our whole letter. These three values affects the size of our font. So we have to modify them.
 
-It is very important to understand that we should keep correct proportions. We do not want to make weird looking animation when every letter is three times wider than normal but height of letter is without any change.
+It is very important to understand that we should keep correct proportions. We do not want to make a weird looking animation where every letter is three times wider than normal but height of letter is without any change - or maybe you do!.
 
-To make sure that we are keeping aspect ratio we will create special variable to store multiplier - `fontSizeMultiplier`. It will work in very intuitive way. If the multiplier is equal `2` then letters are two times larger. If it is equal `0.5` then they are two times smaller.
+To make sure that we are keeping aspect ratio we will create a special variable to store a multiplier - `fontSizeMultiplier`. It will work in very intuitive way. If the multiplier is equal to `2` then letters are two times larger. If it is equal to `0.5` then they are two times smaller.
 
 To reach our goal we simply have to define our variable and assign to it desired value (in our example - `0.5`) and then multiply every decisive variable (`point[0]`, `point[1]` and `document.alphabet[cc_hex].W`). This is the code after adjustments:
 
@@ -79,14 +79,14 @@ if (document.alphabet.hasOwnProperty(cc_hex)) {
             makeColor(bc,point[3])));
     }
     
-    // multiplication of letter widh by our multiplier
+    // multiplication of letter width by our multiplier
     offset += document.alphabet[cc_hex].W * fontSizeMultiplier;
 }
 ```
 
 #### Can I change size of the dots?
 
-As you should know from [how does alphabet.js work?][1] third value (with index `2`, because we are counting from `0`) of every `point` object corresponds to the size of the dot. So we have to multiply or add desired value to `point[2]`. If you change size of the font then you probably want to multiply it by `fontSizeMultiplier`, this is very good idea! You have only to change this parameter of `g.push` method:
+As you should know from [How does alphabet.js work?][1], third value (with index `2`, because we are counting from `0`) of every `point` object corresponds to the size of the dot. So we have to multiply or add desired value to `point[2]`. If you change the size of the font then you probably want to multiply it by `fontSizeMultiplier`, this is very good idea! You have only to change this parameter of `g.push` method:
 ```
 point[2],
 ```
@@ -121,7 +121,7 @@ if (document.alphabet.hasOwnProperty(cc_hex)) {
 
 ### Any more tricks? Yes, color fading!
 
-In [how does alphabet.js work?][1] I mentioned about one mysterious value of every point - fourth value coresponding to hue of a color. But as I said, this option was not used in our projects, but why we should not turn it on?
+In [How does alphabet.js work?][1] I mentioned about one mysterious value of every point - the fourth value coresponding to hue of a color. But as I said, this option was not used in our projects, but why shouldn't we turn it on?
 
 Function `makeColor` is responsible for making color (who would have guessed?) so let's look at it closer:
 
@@ -134,7 +134,7 @@ function makeColor(hslList, fade) {
 }
 ```
 
-You probably noticed few comments. We only have to uncomment code and our animations will gain some depth!
+You probably noticed a few comments. We only have to uncomment code and our animations will gain some depth!
 
 ```
 function makeColor(hslList, fade) {
