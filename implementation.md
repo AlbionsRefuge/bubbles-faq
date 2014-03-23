@@ -3,7 +3,7 @@ Outside Implementation
 
 ### How can I make bouncing bubbles work away from Codecademy?
 
-Our animation is based on external script files. You can use them outside Codecademy, but you should not claim that you wrote them or try to sell them. If you use them on a public website the right thing to do would be to give credit to the work done by others just as the people at Codecademy did. *We want to thank [Google](http://www.google.com/logos/particle.html), [Rob Hawkes](https://github.com/robhawkes/google-bouncing-balls), and [Mark Brenig-Jones & Emile Petrone](http://dotty-dots.appspot.com/). This course was inspired by and built on their work.*
+Our animation is based on external script files. You can use them outside Codecademy, but you should not claim that you wrote them or try to sell them. If you use them on a public website the right thing to do would be to give credit to the work done by others just as the people at Codecademy did. *"We want to thank [Google](http://www.google.com/logos/particle.html), [Rob Hawkes](https://github.com/robhawkes/google-bouncing-balls), and [Mark Brenig-Jones & Emile Petrone](http://dotty-dots.appspot.com/). This course was inspired by and built on their work."*
 
 It is very easy to accomplish. You should create files called `main.js` and `index.html`. Then you have to copy code from your Codecademy project (`index.html` and `main.js` tabs) and paste it inside corresponding newly created files.
 
