@@ -118,7 +118,6 @@ if (document.alphabet.hasOwnProperty(cc_hex)) {
 }
 ```
 
-
 ### Any more tricks? Yes, color fading!
 
 In [How does alphabet.js work?][1] I mentioned about one mysterious value of every point - the fourth value coresponding to hue of a color. But as I said there, this option was not used in our projects, but there is no reason we can't turn it on if we want to!
@@ -145,7 +144,7 @@ function makeColor(hslList, fade) {
 }
 ```
 
-###How to resize animation?
+### How to resize animation?
 
 If you want to use this animation in your own project then the predefined size (500px x 1000px) might be unsuitable. To resize the animation (`canvas` element in fact) you have to change only two parts of `bubbles.js`.
 
@@ -175,6 +174,43 @@ function updateCanvasDimensions() {
 ```
 
 Important note - values in both snippets should be the same.
+
+### How to vertically center the animation?
+
+If you change background color of `canvas` you might notice that our animation is horizontally centered, but not vertically. And when we change size of the canvas or size of the font it might be really annoying. So, we will fix that!
+
+For the vertical position of our animation responsible is 3 and 5 line of this code:
+
+```
+for (var j = 0; j < g.length; j++) {
+    g[j].curPos.x = (canvasWidth / 2 - offset / 2) + g[j].curPos.x;
+    g[j].curPos.y = (canvasHeight / 2 - 180) + g[j].curPos.y;
+    g[j].originalPos.x = (canvasWidth / 2 - offset / 2) + g[j].originalPos.x;
+    g[j].originalPos.y = (canvasHeight / 2 - 180) + g[j].originalPos.y;
+}
+```
+
+I really do not know why developers had used `180` here. Height of letters (difference between lowest and highest second coordinate in whole `alphabet.js`) with additional bufor area (difference between `0` and lowest second coordinate in `alphabet.js` * `2`) is equal to `210`  and we will use this value (in fact, half ot it) to place our animation in middle of canvas:
+
+```
+for (var j = 0; j < g.length; j++) {
+    g[j].curPos.x = (canvasWidth / 2 - offset / 2) + g[j].curPos.x;
+    g[j].curPos.y = (canvasHeight / 2 - 105) + g[j].curPos.y;
+    g[j].originalPos.x = (canvasWidth / 2 - offset / 2) + g[j].originalPos.x;
+    g[j].originalPos.y = (canvasHeight / 2 - 105) + g[j].originalPos.y;
+}
+```
+
+But as you probably noticed we are using here hard coded value corresponding to height of letters... what if we change size of the font? We have to multiply `105` by our `fontSizeMultiplier`, but we can not use here variable, because it was defined in scope of another function. We have to use here only value. So if our `fontSizeMultiplier` was equal to `0.5` our code should be:
+
+```
+for (var j = 0; j < g.length; j++) {
+    g[j].curPos.x = (canvasWidth / 2 - offset / 2) + g[j].curPos.x;
+    g[j].curPos.y = (canvasHeight / 2 - 105 * 0.5) + g[j].curPos.y;
+    g[j].originalPos.x = (canvasWidth / 2 - offset / 2) + g[j].originalPos.x;
+    g[j].originalPos.y = (canvasHeight / 2 - 105 * 0.5) + g[j].originalPos.y;
+}
+```
 
 
 
