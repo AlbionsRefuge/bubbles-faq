@@ -34,3 +34,4 @@ characters so far: 7122
 - [x] Can I change size of the dots?
 - [x] Any more tricks? Yes, color fading!
 - [x] How to resize animation?
+- [ ] How to vertically center the animation?
