@@ -20,7 +20,7 @@ You can make a new color like this:
 
 Now you can use your new color in your `letterColors` array. If you want more than one letter of each color, in a row, then you can build up a pattern like this:
 
-    letterColors = [tardis, tardis, tardis, red];
+    letterColors = [tardis, tardis, tardis, punchBuggy];
 
 
 ### Can I have more shapes? 
