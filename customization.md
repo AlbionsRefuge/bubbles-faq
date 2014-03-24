@@ -180,6 +180,6 @@ Important note - values in both snippets should be the same.
 
 An example of more colors, bigger dots, and fading!
 
-<img src="http://i.imgur.com/tqGoS0o.png" title="Cotton Candy"/>
+<img src="http://i.imgur.com/M05mwFn.png" title="Cotton Candy"/>
 
   [1]: https://github.com/AlbionsRefuge/bubbles-faq/blob/master/behind%20the%20scenes.md#how-does-alphabetjs-work
