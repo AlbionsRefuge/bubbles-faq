@@ -23,6 +23,37 @@ Now you can use your new color in your `letterColors` array. If you want more th
     letterColors = [tardis, tardis, tardis, punchBuggy];
 
 
+### How to change background of animation?
+
+To add extra style to our animation we will use inline (written in `.html` file) `CSS` code. If you want to know more about that language, please take a [HTML & CSS](http://www.codecademy.com/tracks/web) course.
+
+In this operation property `background-color` will be useful. Value of this property might be color presented in different ways:
+
+- RGB (`rgb(255,255,0)`)
+- HEX (`#40E0D0`)
+- HSL (`hsl(275, 100%, 25%)`)
+- name of color (`slateblue`)
+
+We can change background color of animation or of whole site. In first case we have to add our `CSS` code to `<canvas>` element in this way:
+
+```
+<canvas style="background-color: #B0C4DE;" id="myCanvas"></canvas>
+```
+
+If you want to apply changes to whole site you have to style `<body>` element, for example:
+
+```
+<body style="background-color: thistle;">
+```
+
+But, if you do not like solid colors instead of `background-color` you can use property `background-image`. Value of this propety should be link to image. As before, you can apply this style to `<canvas>` or `<body>` element. Sample usage:
+
+```
+<canvas style="background-image: url('http://thepatternlibrary.com/img/a.jpg');" id="myCanvas"></canvas>
+```
+
+More amazing patterns to use freely in your projects you can find at [Pattern Library](http://thepatternlibrary.com/).
+
 ### Can I have more shapes? 
 [Maciej will prepare example with triangles, we will link course about drawing with JavaScript]
 
