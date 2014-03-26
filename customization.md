@@ -177,9 +177,9 @@ Important note - values in both snippets should be the same.
 
 ### How to vertically center the animation?
 
-If you change background color of `canvas` you might notice that our animation is horizontally centered, but not vertically. And when we change size of the canvas or size of the font it might be really annoying. So, we will fix that!
+If you change the background color of `canvas` you might notice that our animation is horizontally centered, but not vertically. And when we change the size of the canvas or the size of the font it might be really annoying. So, we will fix that!
 
-For the vertical position of our animation responsible is 3 and 5 line of this code:
+For the vertical position of our animation, lines 3 and 5 of this code are responsible:
 
 ```
 for (var j = 0; j < g.length; j++) {
@@ -190,7 +190,7 @@ for (var j = 0; j < g.length; j++) {
 }
 ```
 
-I really do not know why developers had used `180` here. Height of letters (difference between lowest and highest second coordinate in whole `alphabet.js`) with additional bufor area (difference between `0` and lowest second coordinate in `alphabet.js` * `2`) is equal to `210`  and we will use this value (in fact, half ot it) to place our animation in middle of canvas:
+I really do not know why developers had used `180` here. Height of letters (difference between lowest and highest second coordinate in whole `alphabet.js`) with additional buffer area (difference between `0` and lowest second coordinate in `alphabet.js` * `2`) is equal to `210`  and we will use this value (in fact, half ot it) to place our animation in middle of canvas:
 
 ```
 for (var j = 0; j < g.length; j++) {
@@ -201,7 +201,7 @@ for (var j = 0; j < g.length; j++) {
 }
 ```
 
-But as you probably noticed we are using here hard coded value corresponding to height of letters... what if we change size of the font? We have to multiply `105` by our `fontSizeMultiplier`, but we can not use here variable, because it was defined in scope of another function. We have to use here only value. So if our `fontSizeMultiplier` was equal to `0.5` our code should be:
+But as you probably noticed we are using here a hard coded value corresponding to height of letters... what if we change size of the font? We have to multiply `105` by our `fontSizeMultiplier`, but we can not use that variable here, because it was defined in scope of another function. We have to use here only value. So if our `fontSizeMultiplier` was equal to `0.5` our code should be:
 
 ```
 for (var j = 0; j < g.length; j++) {
