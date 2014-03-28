@@ -30,7 +30,7 @@ characters so far: 2535
 
 Colors
 
-- [x] Can I make more colors?  (1221)
+- [x] Can I make more colors?  (1034)
 - [x] How to change background of animation? (1326)
 - [x] Any more tricks? Yes, color fading! (1013)
 
