@@ -27,12 +27,24 @@ characters so far: 2535
 [I do not know if it should be here or in customization, but this is more about implementing, not changing script]
 
 ## [Customization](https://github.com/AlbionsRefuge/bubbles-faq/blob/master/customization.md)
-characters so far: 9269
-- [x] Can I make more colors?
-- [x] How to change background of animation?
-- [ ] Can I have more shapes? [Maciej will prepare example with triangles, we will link course about drawing with JavaScript]
-- [x] Can I change the font size?
-- [x] Can I change size of the dots?
-- [x] Any more tricks? Yes, color fading!
-- [x] How to resize animation?
-- [x] How to vertically center the animation?
+
+Colors
+
+- [x] Can I make more colors?  (1221)
+- [x] How to change background of animation? (1326)
+- [x] Any more tricks? Yes, color fading! (1013)
+
+Letters and dots size
+
+- [x] Can I change the font size? (2458)
+- [x] Can I change size of the dots? (1214)
+
+Shapes
+
+- [ ] Can I have more shapes? (0)
+
+Canvas resize and format
+
+- [x] How to resize animation? (832)
+- [x] How to vertically center the animation? (2138)
+
