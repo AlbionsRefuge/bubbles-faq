@@ -59,8 +59,93 @@ But, if you do not like solid colors, instead of `background-color` you can use 
 
 More amazing patterns to use freely in your projects you can find at [Pattern Library](http://thepatternlibrary.com/).
 
-### Can I have more shapes? 
-[Maciej will prepare example with triangles, we will link course about drawing with JavaScript]
+### Can I have more shapes?
+
+All shapes are implemented inside `bubbles.js` file. Unfortunately, there are only squares and circles. Fortunately, nothing stands in the way we have added a new one!
+
+Code on which we will work:
+
+```
+this.draw = function (bubbleShape, dx, dy) {
+    ctx.fillStyle = this.color;
+    if (bubbleShape == "square") {
+        ctx.beginPath();
+        ctx.fillRect(this.curPos.x + dx, this.curPos.y + dy, this.radius * 1.5, this.radius * 1.5);
+    } else {
+        ctx.beginPath();
+        ctx.arc(this.curPos.x + dx, this.curPos.y + dy, this.radius, 0, Math.PI * 2, true);
+        ctx.fill();
+    }
+};
+```
+
+Circle shape is implemented inside `else` statement.
+
+In this post I will show you how to create triangle shape! First we need to create a place where we add our new type, we have to add one `else if` statement:
+
+```
+this.draw = function (bubbleShape, dx, dy) {
+    ctx.fillStyle = this.color;
+    if (bubbleShape == "square") {
+        ctx.beginPath();
+        ctx.fillRect(this.curPos.x + dx, this.curPos.y + dy, this.radius * 1.5, this.radius * 1.5);
+    } else if (bubbleShape == "triangle") {
+        
+        // description of our new shape
+        
+    } else {
+        ctx.beginPath();
+        ctx.arc(this.curPos.x + dx, this.curPos.y + dy, this.radius, 0, Math.PI * 2, true);
+        ctx.fill();
+    }
+};
+```
+
+Now, we have to write code that will create triangles. Let's see which variables we can use:
+
+- `this.radius` - value assigned to each single point, it described how big should be our shape. Note that in `circle` and `square` shape this value is used with `1.5` multiplicator to make points a little bigger, we will use it to.
+- `this.curPos.x + dx` - horizontal coordinate where our point should be placed
+- `this.curPos.y + dy` - vertical coodinate where our point should be placed
+
+Here you can see my planned shape on canvas surface (the lower the greater y):
+![canvas](https://copy.com/thumbs_public/CYPd1amLEmUh/canvas.jpg?revision=8381&size=1024)
+
+Code:
+
+```
+// start our path
+ctx.beginPath();
+// move to verter A
+ctx.moveTo(this.curPos.x + dx, this.curPos.y + dy);
+// move to vertex B
+ctx.lineTo(this.curPos.x + dx, this.curPos.y + dy + this.radius * 1.5);
+// move to vertex C
+ctx.lineTo(this.curPos.x + dx + this.radius * 1.5, this.curPos.y + dy + this.radius * 1.5);
+// fill our shape
+ctx.fill();
+```
+
+Last thing, in our `main.js` file we should let know `bubbles.js` that we want to use new shape:
+
+```
+bubbleShape = 'triangle';
+```
+
+The method described above shows a way to create any new shape ready to use with our animation. But to know more about drawing you should check [Draw with JavaScript](http://www.codecademy.com/courses/web-beginner-en-SWM11/0/1) course. After that you should be able to create complex shapes like this one below:
+
+```
+else if (bubbleShape == "heart") {
+    ctx.beginPath();
+    ctx.moveTo(this.curPos.x + dx + 0.8655 * this.radius, this.curPos.y + dy + 0.462 * this.radius);
+    ctx.bezierCurveTo(this.curPos.x + dx + 0.8655 * this.radius, this.curPos.y + dy + 0.4275 * this.radius, this.curPos.x + dx + 0.807 * this.radius, this.curPos.y + dy + 0.288 * this.radius, this.curPos.x + dx + 0.5775 * this.radius, this.curPos.y + dy + 0.288 * this.radius);
+    ctx.bezierCurveTo(this.curPos.x + dx + 20 / 130 * this.radius * 1.5, this.curPos.y + dy + 0.288 * this.radius, this.curPos.x + dx + 20 / 130 * this.radius * 1.5, this.curPos.y + dy + 62.5 / 130 * this.radius * 1.5, this.curPos.x + dx + 20 / 130 * this.radius * 1.5, this.curPos.y + dy + 62.5 / 130 * this.radius * 1.5);
+    ctx.bezierCurveTo(this.curPos.x + dx + 20 / 130 * this.radius * 1.5, this.curPos.y + dy + 80 / 130 * this.radius * 1.5, this.curPos.x + dx + 0.462 * this.radius, this.curPos.y + dy + 102 / 130 * this.radius * 1.5, this.curPos.x + dx + 0.8655 * this.radius, this.curPos.y + dy + 120 / 130 * this.radius * 1.5);
+    ctx.bezierCurveTo(this.curPos.x + dx + 110 / 130 * this.radius * 1.5, this.curPos.y + dy + 102 / 130 * this.radius * 1.5, this.curPos.x + dx + this.radius * 1.5, this.curPos.y + dy + 80 / 130 * this.radius * 1.5, this.curPos.x + dx + this.radius * 1.5, this.curPos.y + dy + 62.5 / 130 * this.radius * 1.5);
+    ctx.bezierCurveTo(this.curPos.x + dx + this.radius * 1.5, this.curPos.y + dy + 62.5 / 130 * this.radius * 1.5, this.curPos.x + dx + this.radius * 1.5, this.curPos.y + dy + 0.288 * this.radius, this.curPos.x + dx + 100 / 130 * this.radius * 1.5, this.curPos.y + dy + 0.288 * this.radius);
+    ctx.bezierCurveTo(this.curPos.x + dx + 0.9808 * this.radius, this.curPos.y + dy + 0.288 * this.radius, this.curPos.x + dx + 0.8655 * this.radius, this.curPos.y + dy + 0.4275 * this.radius, this.curPos.x + dx + 0.8655 * this.radius, this.curPos.y + dy + 0.462 * this.radius);
+    ctx.fill();
+}
+```
 
 ### Can I change the font size?
 Of course you can! But you will have to dig into `bubbles.js` file and change it a bit. Before we start it is highly recommended to read: [How does alphabet.js work?][1].
