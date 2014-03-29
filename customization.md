@@ -2,6 +2,8 @@ Customization
 ===
 
 ### Can I make more colors?
+
+
 There are many ways to define colors. In this project we are using **HSL** (**H**ue, **S**aturation, **L**ightness). You can read about HSL and other color models [here](http://en.wikibooks.org/wiki/Color_Models:_RGB,_HSV,_HSL).
 
 In this project you take an array with 3 numbers and assign it a name. You are free to use any words as your array names. 
@@ -14,7 +16,9 @@ In the case of **red**, **H**ue is 0, **S**aturation is 100% and **L**ightness i
 
 There are many online tools to help you choose new colors. [here is one](http://hslpicker.com/), and [here is another](http://www.workwithcolor.com/cyan-blue-color-hue-range-01.htm)
 
-If make a new color like this:
+![More Colors](https://db.tt/iBUINdOQ)
+
+If you make a new color like this:
 
     var tardis = [230, 58, 24];
 
