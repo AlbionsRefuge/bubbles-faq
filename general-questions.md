@@ -29,11 +29,13 @@ There isn't much sense re-inventing the wheel. The same goes for coding tasks. T
 
 You will have learned a little bit about customization too. Remember how easy it was to change the look of your bubbles just by picking different color and shape names? You can always make improvements to your base code. You can dig into scripts and change single values, like the size of the dots. Read more on that in the [Customization](https://github.com/AlbionsRefuge/bubbles-faq/blob/master/customization.md) section.
 
+![Codecademy image](https://db.tt/lghWwJmD)
+
 ### Where is all the code that is making this happen?
 
 Check your `index.html` tab, you will see links there that pull in additional code from other places. Notice how there are several `<script>` tags. Those tags are what you use to gain access to other scripts that are external to your code.
 
-You should see links out to three external files plus your own main.js file.
+You should see links to three external files plus your own main.js file.
 
 - main.js
 - code.jquery.com/jquery-1.10.2.min.js
