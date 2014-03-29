@@ -115,7 +115,7 @@ Code:
 ```
 // start our path
 ctx.beginPath();
-// move to verter A
+// move to vertex A
 ctx.moveTo(this.curPos.x + dx, this.curPos.y + dy);
 // move to vertex B
 ctx.lineTo(this.curPos.x + dx, this.curPos.y + dy + this.radius * 1.5);
