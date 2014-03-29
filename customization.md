@@ -61,7 +61,9 @@ More amazing patterns to use freely in your projects you can find at [Pattern Li
 
 ### Can I have more shapes?
 
-All shapes are implemented inside `bubbles.js` file. Unfortunately, there are only squares and circles. Fortunately, nothing stands in the way we have added a new one!
+All shapes are implemented inside `bubbles.js` file. Unfortunately, there are only squares and circles. Fortunately, nothing stands in our way, we have added a new one!
+
+![triangles](https://db.tt/PP0jRdDF)
 
 Code on which we will work:
 
@@ -107,7 +109,7 @@ Now, we have to write code that will create triangles. Let's see which variables
 - `this.curPos.x + dx` - horizontal coordinate where our point should be placed
 - `this.curPos.y + dy` - vertical coodinate where our point should be placed
 
-Here you can see my planned shape on canvas surface (the lower the greater y):
+Here you can see my planned shape on canvas surface (the lower on the grid, the greater the y):
 ![canvas](https://copy.com/thumbs_public/CYPd1amLEmUh/canvas.jpg?revision=8381&size=1024)
 
 Code:
