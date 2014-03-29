@@ -207,7 +207,7 @@ if (document.alphabet.hasOwnProperty(cc_hex)) {
 
 #### Can I change size of the dots?
 
-As you should know from [How does alphabet.js work?][1], third value (with index `2`, because we are counting from `0`) of every `point` object corresponds to the size of the dot. So we have to multiply or add desired value to `point[2]`. If you change the size of the font then you probably want to multiply it by `fontSizeMultiplier`, this is very good idea! You have only to change this parameter of `g.push` method:
+As you should know from [How does alphabet.js work?][1], the third value (with index `2`, because we are counting from `0`) of every `point` object corresponds to the size of the dot. So we have to multiply or add desired value to `point[2]`. If you change the size of the font then you probably want to multiply it by `fontSizeMultiplier`, this is very good idea! You have only to change this parameter of `g.push` method:
 ```
 point[2],
 ```
@@ -238,6 +238,8 @@ if (document.alphabet.hasOwnProperty(cc_hex)) {
     offset += document.alphabet[cc_hex].W;
 }
 ```
+
+![example of big dots](https://db.tt/N99H05O5)
 
 ### Any more tricks? Yes, color fading!
 
