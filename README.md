@@ -41,7 +41,7 @@ Letters and dots size
 
 Shapes
 
-- [ ] Can I have more shapes? (0)
+- [x] Can I have more shapes? (0)
 
 Canvas resize and format
 
