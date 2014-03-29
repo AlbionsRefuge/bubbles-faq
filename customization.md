@@ -265,6 +265,8 @@ function makeColor(hslList, fade) {
 }
 ```
 
+![An example of more colors, bigger dots, and fading!](https://db.tt/kDgLXNO8)
+
 ### How to resize animation?
 
 If you want to use this animation in your own project then the predefined size (500px x 1000px) might be unsuitable. To resize the animation (`canvas` element in fact) you have to change only two parts of `bubbles.js`.
@@ -335,8 +337,8 @@ for (var j = 0; j < g.length; j++) {
 
 
 
-An example of more colors, bigger dots, and fading!
 
-<img src="http://i.imgur.com/M05mwFn.png" title="Cotton Candy"/>
+
+
 
   [1]: https://github.com/AlbionsRefuge/bubbles-faq/blob/master/behind%20the%20scenes.md#how-does-alphabetjs-work
