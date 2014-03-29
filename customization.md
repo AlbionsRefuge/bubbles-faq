@@ -147,6 +147,8 @@ else if (bubbleShape == "heart") {
 }
 ```
 
+![the dots are hearts](https://db.tt/Y9wXERQd)
+
 ### Can I change the font size?
 Of course you can! But you will have to dig into `bubbles.js` file and change it a bit. Before we start it is highly recommended to read: [How does alphabet.js work?][1].
 
