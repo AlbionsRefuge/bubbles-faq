@@ -47,3 +47,8 @@ Canvas resize and format
 - [x] How to resize animation? (832)
 - [x] How to vertically center the animation? (2138)
 
+--------
+
+## Gists
+
+[bubbles.js](https://github.com/AlbionsRefuge/bubbles-faq/blob/master/gists/bubbles.js)

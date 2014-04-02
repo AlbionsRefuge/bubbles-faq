@@ -275,18 +275,9 @@ function makeColor(hslList, fade) {
 
 ### How to resize animation?
 
-If you want to use this animation in your own project then the predefined size (500px x 1000px) might be unsuitable. To resize the animation (`canvas` element in fact) you have to change only two parts of `bubbles.js`.
+If you want to use this animation in your own project then the predefined size (500px x 1000px) might be unsuitable.
 
-First one is part of the code that is executed just when the script is loaded:
-
-```
-var canvas = $("#myCanvas");
-// change canvasHeight and canvasWidth to desired values
-var canvasHeight = 500;
-var canvasWidth = 1000;
-```
-
-Second one is `updateCanvasDimensions` function:
+To resize the animation (`canvas` element in fact) you have to change only one part of `bubbles.js`:
 
 ```
 function updateCanvasDimensions() {
@@ -301,8 +292,6 @@ function updateCanvasDimensions() {
     draw();
 }
 ```
-
-Important note - values in both snippets should be the same.
 
 ### How to vertically center the animation?
 
