@@ -1,4 +1,4 @@
-[Animate Your Name](http://www.codecademy.com/courses/animate-your-name/0/1) - FAQ staging area
+Codecademy's [Animate Your Name](http://www.codecademy.com/courses/animate-your-name/0/1) - FAQ staging area
 ===========
 
 ## The Plan
