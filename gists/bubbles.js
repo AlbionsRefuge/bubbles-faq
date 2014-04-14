@@ -1,14 +1,16 @@
+// Vector is a data structure used to represent point in 3d space
 function Vector(x, y, z) {
+    // properties x, y, z are representing every coordinate of point
     this.x = x;
     this.y = y;
     this.z = z;
- 
+    // method set is used to change x and y coordinates of given point
     this.set = function (x, y) {
         this.x = x;
         this.y = y;
     };
 }
- 
+
 function PointCollection() {
     this.mousePos = new Vector(0, 0);
     this.pointCollectionX = 0;
@@ -67,25 +69,32 @@ function PointCollection() {
  
     this.reset = function (bubbleShape) {};
 }
- 
+
+// Point is a data structure used to represent single bubbles in our animation
 function Point(x, y, z, size, color) {
+    // property curPos stores current position of our bubble in 3d space, predefined value is equal to coordinates defined in alphabet.js (parameters x, y, z)
     this.curPos = new Vector(x, y, z);
+    // property color stores color of our bubble defined by us in main.js
     this.color = color;
- 
+    
+    // load settings from document [add]
     this.friction = document.Friction;
     this.rotationForce = document.rotationForce;
-    this.springStrength = 0.1;
- 
+    this.springStrength = document.springStrength;
+    
+    // property originalPos stores Vector (point) with coordinates defined in alphabet.js (parameters x, y, z)
     this.originalPos = new Vector(x, y, z);
+    // basic value of radius and size is value defined in alphabet.js (parameter size)
     this.radius = size;
     this.size = size;
+    // property targetPos stores direction where bubble goes, predefined value is equal to originalPos
     this.targetPos = new Vector(x, y, z);
+    // velocity in our script is represented by a vector, predefined velocity is equal to 0
     this.velocity = new Vector(0.0, 0.0, 0.0);
  
     this.update = function () {
         var dx = this.targetPos.x - this.curPos.x;
         var dy = this.targetPos.y - this.curPos.y;
-        // Orthogonal vector is [-dy,dx]
         var ax = dx * this.springStrength - this.rotationForce * dy;
         var ay = dy * this.springStrength + this.rotationForce * dx;
  
@@ -114,76 +123,123 @@ function Point(x, y, z, size, color) {
     };
  
     this.draw = function (bubbleShape, dx, dy) {
+        // set the fill color to color of bubble
         ctx.fillStyle = this.color;
         if (bubbleShape == "square") {
+            // begin path
             ctx.beginPath();
+            /* draw filled square, this.radius * 1.5 heigh and wide at
+             * vertex with coordinates (this.curPos.x + dx, this.curPos.y + dy)
+             */
             ctx.fillRect(this.curPos.x + dx, this.curPos.y + dy, this.radius * 1.5, this.radius * 1.5);
         } else {
+            // begin path
             ctx.beginPath();
+            /* draw circle with radius equal to this.radius * 1.5 with
+             * center at coordinates (this.curPos.x + dx, this.curPos.y + dy)
+             */
             ctx.arc(this.curPos.x + dx, this.curPos.y + dy, this.radius, 0, Math.PI * 2, true);
+            // fill path and end path
             ctx.fill();
         }
     };
 }
- 
+
+/* function makeColor is used to convert array of values
+ * for example [196, 77, 55] into color in HSL color model.
+ * More about color models you can read at:
+ * http://en.wikibooks.org/wiki/Color_Models:_RGB,_HSV,_HSL
+ */
 function makeColor(hslList, fade) {
     var hue = hslList[0] /*- 17.0 * fade / 1000.0*/ ;
     var sat = hslList[1] /*+ 81.0 * fade / 1000.0*/ ;
     var lgt = hslList[2] /*+ 58.0 * fade / 1000.0*/ ;
     return "hsl(" + hue + "," + sat + "%," + lgt + "%)";
 }
- 
+
+// function phraseToHex is used to convert ASCII text into HEX coded text
 function phraseToHex(phrase) {
+    // assign empty string to hexphrase
     var hexphrase = "";
+    // for every char in parameter phrase (...)
     for (var i = 0; i < phrase.length; i++) {
+        // (...) add to hexphrase hexadecimal value of this character
         hexphrase += phrase.charCodeAt(i).toString(16);
     }
+    // return converted string
     return hexphrase;
 }
- 
+
+// this function initialize event listeners
 function initEventListeners() {
+    /* this statement triggers function updateCanvasDimensions [add] if our page is resized by user
+     * and triggers function onMove [add] when cursor is moved
+     */
     $(window).bind('resize', updateCanvasDimensions).bind('mousemove', onMove);
- 
+    
+    // this function will be triggered if user touch a scrren and move his finger (for example in smartphones)
     canvas.ontouchmove = function (e) {
+        // preventDefault statement terminates default action of the event
         e.preventDefault();
+        // trigger function onTouchMove [add]
         onTouchMove(e);
     };
- 
+    // this function will be triggered if usert touch a screen
     canvas.ontouchstart = function (e) {
+        // preventDefault statement terminates default action of the event
         e.preventDefault();
     };
 }
  
+// function updateCanvasDimensions is used to control the size of the canvas
 function updateCanvasDimensions() {
+    // basic variables, you can change them to resize canvas element
     canvas.attr({
         height: 500,
         width: 1000
     });
+    // assign to variables values defined above
     canvasWidth = canvas.width();
     canvasHeight = canvas.height();
+    // trigger function draw [add]
     draw();
 }
- 
+
+// function onMove checks position of coursor and accordingly affects the animation
 function onMove(e) {
+    // if pointCollection exists (...)
     if (pointCollection) {
+        /* (...) set value of property mousePos of pointCollection to mouse coordinates
+         * relative to canvas element
+         */
         pointCollection.mousePos.set(e.pageX - canvas.offset().left, e.pageY - canvas.offset().top);
     }
 }
- 
+
+// function onTouchMove checks position of finger on touch screen and accordingly affects the animation
 function onTouchMove(e) {
+    // if pointCollection exists (...)
     if (pointCollection) {
+        /* (...) set value of property mousePos of pointCollection to mouse coordinates
+         * relative to canvas element
+         */
         pointCollection.mousePos.set(e.targetTouches[0].pageX - canvas.offset().left, e.targetTouches[0].pageY - canvas.offset().top);
     }
 }
  
 function bounceName() {
+    // trigger function shake [add]
     shake();
+    // trigger again this function (bounceName) after 30 ms
     setTimeout(bounceName, 30);
 }
  
 function bounceBubbles() {
+    // trigger function draw [add]
     draw();
+    // trigger function update [add]
     update();
+    // trigger again this function (bounceBubbles) after 30 ms
     setTimeout(bounceBubbles, 30);
 }
  
@@ -293,16 +349,24 @@ $(window).mouseleave(function () {
 $(window).mouseenter(function () {
     window.reset = false;
 });
- 
+
+// assign to variable canvas element with id `myCanvas` 
 var canvas = $("#myCanvas");
+
+// declaration of the basic variables
 var canvasHeight;
 var canvasWidth;
 var ctx;
 var pointCollection;
- 
+
+// settings of our animation, you can try to change them, have fun :)
 document.rotationForce = 0.0;
 document.Friction = 0.85;
+document.springStrength = 0.1;
 
+/* basic, predefined colors, used for example in exercise:
+ * http://www.codecademy.com/courses/animate-your-name/2/3
+ */
 var white = [0, 0, 100];
 var black = [0, 0, 27];
 var red = [0, 100, 63];
@@ -310,5 +374,6 @@ var orange = [40, 100, 60];
 var green = [75, 100, 40];
 var blue = [196, 77, 55];
 var purple = [280, 50, 60];
- 
+
+// this statement will trigger function updateCanvasDimensions after 30 ms [add]
 setTimeout(updateCanvasDimensions, 30);
