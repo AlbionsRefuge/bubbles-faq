@@ -1,6 +1,6 @@
-// Vector is a data structure used to represent point in 3d space
+// Vector is a data structure used to represent a point in 3d space
 function Vector(x, y, z) {
-    // properties x, y, z are representing every coordinate of point
+    // properties x, y, z are representing every coordinate of the point
     this.x = x;
     this.y = y;
     this.z = z;
