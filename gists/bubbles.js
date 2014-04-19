@@ -72,8 +72,9 @@ function PointCollection() {
 
 // Point is a data structure used to represent single bubbles in our animation
 function Point(x, y, z, size, color) {
-    // property curPos stores the current position of our bubble in 3d space, 
-    //   predefined value is equal to the coordinates defined in alphabet.js (parameters x, y, z)
+    /* property curPos stores the current position of our bubble in 3d space, 
+     *   predefined value is equal to the coordinates defined in alphabet.js (parameters x, y, z)
+     */
     this.curPos = new Vector(x, y, z);
     // property color stores the color of our bubble defined by us in main.js
     this.color = color;
@@ -129,15 +130,21 @@ function Point(x, y, z, size, color) {
         if (bubbleShape == "square") {
             // begin path
             ctx.beginPath();
-            /* draw filled square, this.radius * 1.5 high and wide at
-             * vertex with coordinates (this.curPos.x + dx, this.curPos.y + dy)
+             /* To draw a rectangle filled with the current fillStyle we use
+             *   fillRect(x, y, width, height) 
+             *   where x, y is the upper, left corner of the rectangle.
+             *  In this case, we use this.radius * 1.5 for height and width, and
+             *   the upper, left vertex has coordinates (this.curPos.x + dx, this.curPos.y + dy)
              */
             ctx.fillRect(this.curPos.x + dx, this.curPos.y + dy, this.radius * 1.5, this.radius * 1.5);
-        } else {
+        } else { // the default bubbleShape will be circles
             // begin path
             ctx.beginPath();
-            /* draw circle with radius equal to this.radius * 1.5 with
-             * center at coordinates (this.curPos.x + dx, this.curPos.y + dy)
+             /* To draw a circle filled with the current fillStyle we use 
+             *   arc(x, y, radius, startAngle, endAngle, anticlockwise)
+             *   where x, y is the center point of the circle.
+             * In this case, the radius is equal to this.radius with
+             *   center at coordinates (this.curPos.x + dx, this.curPos.y + dy) 
              */
             ctx.arc(this.curPos.x + dx, this.curPos.y + dy, this.radius, 0, Math.PI * 2, true);
             // fill path and end path
