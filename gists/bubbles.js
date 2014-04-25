@@ -11,41 +11,86 @@ function Vector(x, y, z) {
     };
 }
 
+// PointCollection is a data structure used to represent all points forming our animation
 function PointCollection() {
+    /* mousePos property stores coordinates of cursor
+     * predefined value is a point in upper left corner of 2d plane 
+     */
     this.mousePos = new Vector(0, 0);
+    
+    /* properties pointCollectionX and pointCollectionY stores
+     * additional deviation to the position of the point,
+     * initial value is 0
+     */
     this.pointCollectionX = 0;
     this.pointCollectionY = 0;
+    
+    /* property points stores all points forming our animation
+     * initial value is a empty array
+     */
     this.points = [];
- 
+    
+    // method update is used to track position of cursor and accordingly influence each point
     this.update = function () {
-        for (var i = 0; i < this.points.length; i++) {
+        // for every element in array points (...)
+        for (var i = 0; i < this.points.length; i++) {            
+            /* Assign:
+             * - to variable point current point (element at index i in array points)
+             * - to variable dx horizontal distance between cursor and current point
+             * - to variable dy horizontal distance between cursor and current point
+             * - to variable d distance in a straight line between cursor and current point,
+             *   this variable is calculated using the Pythagorean theorem
+             */
             var point = this.points[i];
- 
             var dx = this.mousePos.x - point.curPos.x;
             var dy = this.mousePos.y - point.curPos.y;
-            var dd = (dx * dx) + (dy * dy);
-            var d = Math.sqrt(dd);
- 
+            var d = Math.sqrt((dx * dx) + (dy * dy));
+            
+            /* Statements below are assignation operations combined with ternary operators [add_doc]
+             * If distance between cursor and current point is less than 150 assign to property
+             * targetPos [add_lines] of current point difference between current position of point and
+             * distance between cursor and current position of point. [add_better_explanation] [optimize_code]
+             * Otherwise assign to property targetPos [add_lines] of current point original position of this point. 
+             */
             point.targetPos.x = d < 150 ? point.curPos.x - dx : point.originalPos.x;
             point.targetPos.y = d < 150 ? point.curPos.y - dy : point.originalPos.y;
- 
+            
+            // trigger method update [add_line_numbers] for current point
             point.update();
         }
     };
- 
+    
+    /* method shake is used to shake our collection of points. This method a significant part of the
+     * bounceName function [add_lines] used, for example, in this exercise:
+     * http://www.codecademy.com/courses/animate-your-name/2/7
+     */
     this.shake = function () {
-        var randomNum = Math.floor(Math.random() * 5) - 2;
- 
+        // for every element in array points (...)
         for (var i = 0; i < this.points.length; i++) {
+            /* Assign:
+             * - to variable point current point (element at index i in array points)
+             * - to variable dx horizontal distance between cursor and current point
+             * - to variable dy horizontal distance between cursor and current point
+             * - to variable d distance in a straight line between cursor and current point,
+             *   this variable is calculated using the Pythagorean theorem
+             */
             var point = this.points[i];
             var dx = this.mousePos.x - point.curPos.x;
             var dy = this.mousePos.y - point.curPos.y;
-            var dd = (dx * dx) + (dy * dy);
-            var d = Math.sqrt(dd);
+            var d = Math.sqrt((dx * dx) + (dy * dy));
+            
+            // if distance between cursor and current point is less than 50 (...)
             if (d < 50) {
+                /* (...) Assign to properties pointCollectionX and pointCollectionY two random integer numbers
+                 * from set [-2, -1, 0, 1, 2]
+                 */
                 this.pointCollectionX = Math.floor(Math.random() * 5) - 2;
                 this.pointCollectionY = Math.floor(Math.random() * 5) - 2;
             }
+            
+            /* trigger method draw [add_lines] for current point with parameters
+             * pointCollectionX and pointCollectionY which affect the position of point
+             */
             point.draw(bubbleShape, this.pointCollectionX, this.pointCollectionY);
         }
     };
@@ -73,13 +118,13 @@ function PointCollection() {
 // Point is a data structure used to represent single bubbles in our animation
 function Point(x, y, z, size, color) {
     /* property curPos stores the current position of our bubble in 3d space, 
-     *   predefined value is equal to the coordinates defined in alphabet.js (parameters x, y, z)
+     * predefined value is equal to the coordinates defined in alphabet.js (parameters x, y, z)
      */
     this.curPos = new Vector(x, y, z);
     // property color stores the color of our bubble defined by us in main.js
     this.color = color;
     
-    // load settings from document [add]
+    // load settings from document [add_line_numbers]
     this.friction = document.Friction;
     this.rotationForce = document.rotationForce;
     this.springStrength = document.springStrength;
@@ -110,8 +155,7 @@ function Point(x, y, z, size, color) {
  
         var dox = this.originalPos.x - this.curPos.x;
         var doy = this.originalPos.y - this.curPos.y;
-        var dd = (dox * dox) + (doy * doy);
-        var d = Math.sqrt(dd);
+        var d = Math.sqrt((dox * dox) + (doy * doy));
  
         this.targetPos.z = d / 100 + 1;
         var dz = this.targetPos.z - this.curPos.z;
@@ -131,20 +175,20 @@ function Point(x, y, z, size, color) {
             // begin path
             ctx.beginPath();
              /* To draw a rectangle filled with the current fillStyle we use
-             *   fillRect(x, y, width, height) 
-             *   where x, y is the upper, left corner of the rectangle.
+             *  fillRect(x, y, width, height) 
+             *  where x, y is the upper, left corner of the rectangle.
              *  In this case, we use this.radius * 1.5 for height and width, and
-             *   the upper, left vertex has coordinates (this.curPos.x + dx, this.curPos.y + dy)
+             *  the upper, left vertex has coordinates (this.curPos.x + dx, this.curPos.y + dy)
              */
             ctx.fillRect(this.curPos.x + dx, this.curPos.y + dy, this.radius * 1.5, this.radius * 1.5);
         } else { // the default bubbleShape will be circles
             // begin path
             ctx.beginPath();
              /* To draw a circle filled with the current fillStyle we use 
-             *   arc(x, y, radius, startAngle, endAngle, anticlockwise)
-             *   where x, y is the center point of the circle.
-             * In this case, the radius is equal to this.radius with
-             *   center at coordinates (this.curPos.x + dx, this.curPos.y + dy) 
+             *  arc(x, y, radius, startAngle, endAngle, anticlockwise)
+             *  where x, y is the center point of the circle.
+             *  In this case, the radius is equal to this.radius with
+             *  center at coordinates (this.curPos.x + dx, this.curPos.y + dy) 
              */
             ctx.arc(this.curPos.x + dx, this.curPos.y + dy, this.radius, 0, Math.PI * 2, true);
             // fill path and end path
@@ -180,8 +224,8 @@ function phraseToHex(phrase) {
 
 // this function initialize event listeners
 function initEventListeners() {
-    /* this statement triggers function updateCanvasDimensions [add] if our page is resized by the user
-     * and triggers function onMove [add] when the cursor is moved
+    /* this statement triggers function updateCanvasDimensions [add_line_numbers] if our page is resized by the user
+     * and triggers function onMove [add_line_numbers] when the cursor is moved
      */
     $(window).bind('resize', updateCanvasDimensions).bind('mousemove', onMove);
     
@@ -189,7 +233,7 @@ function initEventListeners() {
     canvas.ontouchmove = function (e) {
         // preventDefault statement terminates default action of the event
         e.preventDefault();
-        // trigger function onTouchMove [add]
+        // trigger function onTouchMove [add_line_numbers]
         onTouchMove(e);
     };
     // this function will be triggered if the user touches a screen
@@ -209,7 +253,7 @@ function updateCanvasDimensions() {
     // assign to variables the values defined above
     canvasWidth = canvas.width();
     canvasHeight = canvas.height();
-    // trigger function draw [add]
+    // trigger function draw [add_line_numbers]
     draw();
 }
 
@@ -236,16 +280,16 @@ function onTouchMove(e) {
 }
  
 function bounceName() {
-    // trigger function shake [add]
+    // trigger function shake [add_line_numbers]
     shake();
     // trigger again this function (bounceName) after 30 ms
     setTimeout(bounceName, 30);
 }
  
 function bounceBubbles() {
-    // trigger function draw [add]
+    // trigger function draw [add_line_numbers]
     draw();
-    // trigger function update [add]
+    // trigger function update [add_line_numbers]
     update();
     // trigger again this function (bounceBubbles) after 30 ms
     setTimeout(bounceBubbles, 30);
@@ -383,5 +427,5 @@ var green = [75, 100, 40];
 var blue = [196, 77, 55];
 var purple = [280, 50, 60];
 
-// this statement will trigger function updateCanvasDimensions after 30 ms [add]
+// this statement will trigger function updateCanvasDimensions after 30 ms [add_line_numbers]
 setTimeout(updateCanvasDimensions, 30);
