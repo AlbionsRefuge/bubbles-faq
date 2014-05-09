@@ -121,7 +121,7 @@ function PointCollection() {
     };
 }
 
-// Point is a data structure used to represent single bubbles in our animation
+// Point is a data structure used to represent single points / bubbles in our animation
 function Point(x, y, z, size, color) {
     /* property curPos stores the current position of our bubble in 3d space,
      * predefined value is equal to the coordinates defined in alphabet.js (parameters x, y, z)
@@ -145,6 +145,9 @@ function Point(x, y, z, size, color) {
     // velocity in our script is represented by a vector, predefined velocity is equal to 0
     this.velocity = new Vector(0.0, 0.0, 0.0);
 
+    /* method update is used to update properties of Point object
+     * in accordance with current situation
+     */
     this.update = function () {
         var dx = this.targetPos.x - this.curPos.x;
         var dy = this.targetPos.y - this.curPos.y;
@@ -396,8 +399,10 @@ function drawName(name, letterColors) {
      * for given letter and transform them into Point objects.
      * Before reading comments to this function it is recommended to
      * read this article -> http://www.codecademy.com/forum_questions/53385f2d52f8631f4200b18b
+     * This is only definition of function, it will be triggered later in the code.
      */
     function addLetter(cc_hex, ix, letterCols) {
+        // if variable passed as letterCols parameter is defined (...)
         if (typeof letterCols !== 'undefined') {
             if (Object.prototype.toString.call(letterCols) === '[object Array]' && Object.prototype.toString.call(letterCols[0]) === '[object Array]') {
                 letterColors = letterCols;
@@ -405,8 +410,8 @@ function drawName(name, letterColors) {
             if (Object.prototype.toString.call(letterCols) === '[object Array]' && typeof letterCols[0] === "number") {
                 letterColors = [letterCols];
             }
-        } else {
-            // if undefined set black
+        } else { // if variable passed as letterCols parameter is not defined (...)
+            // (...) set variable letterColors to one value (dark gray color) array
             letterColors = [[0, 0, 27]];
         }
 
@@ -438,7 +443,8 @@ function drawName(name, letterColors) {
         }
         addLetter(cc_hex, col_ix, letterColors);
     }
-
+    
+    
     for (var j = 0; j < g.length; j++) {
         g[j].curPos.x = (canvasWidth / 2 - offset / 2) + g[j].curPos.x;
         g[j].curPos.y = (canvasHeight / 2 - 105) + g[j].curPos.y;
@@ -446,8 +452,11 @@ function drawName(name, letterColors) {
         g[j].originalPos.y = (canvasHeight / 2 - 105) + g[j].originalPos.y;
     }
 
+    // assign to variable pointColletion new object of class PointCollection
     pointCollection = new PointCollection();
+    // set property points of our newly created object to g, array of points
     pointCollection.points = g;
+    // trigger event handlers [add_lines]
     initEventListeners();
 }
 
