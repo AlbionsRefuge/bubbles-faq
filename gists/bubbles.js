@@ -35,10 +35,10 @@ function PointCollection() {
         // for every element in array points (...)
         for (var i = 0; i < this.points.length; i++) {
             /* Assign:
-             * - to variable point current point (element at index i in array points)
-             * - to variable dx horizontal distance between cursor and current point
-             * - to variable dy horizontal distance between cursor and current point
-             * - to variable d distance in a straight line between cursor and current point,
+             * - to variable point the current point (element at index i in array points)
+             * - to variable dx the horizontal distance between cursor and current point
+             * - to variable dy the vertical distance between cursor and current point
+             * - to variable d the distance in a straight line between cursor and current point,
              *   this variable is calculated using the Pythagorean theorem
              */
             var point = this.points[i];
@@ -47,10 +47,10 @@ function PointCollection() {
             var d = Math.sqrt((dx * dx) + (dy * dy));
 
             /* Statements below are assignation operations combined with ternary operators [add_doc]
-             * If distance between cursor and current point is less than 150 assign to property
-             * targetPos [add_lines] of current point difference between current position of point and
+             * If distance between cursor and current point is less than 150 then assign to property
+             * targetPos [add_lines] of current point the difference between current position of point and the
              * distance between cursor and current position of point. [add_better_explanation] [optimize_code]
-             * Otherwise assign to property targetPos [add_lines] of current point original position of this point.
+             * Otherwise assign to property the targetPos [add_lines] of current point original position of this point.
              */
             point.targetPos.x = d < 150 ? point.curPos.x - dx : point.originalPos.x;
             point.targetPos.y = d < 150 ? point.curPos.y - dy : point.originalPos.y;
@@ -68,10 +68,10 @@ function PointCollection() {
         // for every element in array points (...)
         for (var i = 0; i < this.points.length; i++) {
             /* Assign:
-             * - to variable point current point (element at index i in array points)
-             * - to variable dx horizontal distance between cursor and current point
-             * - to variable dy horizontal distance between cursor and current point
-             * - to variable d distance in a straight line between cursor and current point,
+             * - to variable point the current point (element at index i in array points)
+             * - to variable dx the horizontal distance between cursor and current point
+             * - to variable dy the vertical distance between cursor and current point
+             * - to variable d the distance in a straight line between cursor and current point,
              *   this variable is calculated using the Pythagorean theorem
              */
             var point = this.points[i];
@@ -97,17 +97,17 @@ function PointCollection() {
 
     // method draw is used to draw our collection of points
     this.draw = function (bubbleShape, reset) {
-        // for every element in array points (...)
+        // for every element in the array called points (...)
         for (var i = 0; i < this.points.length; i++) {
-            // (...) assign to variable point current point (element at index i in array points)
+            // (...) assign to the variable point the current point (element at index i in array points)
             var point = this.points[i];
 
-            // if current point does not exist (...)
+            // if the current point does not exist (...)
             if (point === null)
                 // (...) go to the next iteration, next point
                 continue;
 
-            // if property reset of window object is set to true (...)
+            // if the property reset of the window object is set to true (...)
             if (window.reset) {
                 // (...) assign default, initial values to variables listed below
                 this.pointCollectionX = 0;
@@ -145,7 +145,7 @@ function Point(x, y, z, size, color) {
     // velocity in our script is represented by a vector, predefined velocity is equal to 0
     this.velocity = new Vector(0.0, 0.0, 0.0);
 
-    /* method update is used to update properties of Point object
+    /* method update is used to update the properties of Point object
      * in accordance with current situation
      */
     this.update = function () {
@@ -163,9 +163,9 @@ function Point(x, y, z, size, color) {
         this.curPos.y += this.velocity.y;
 
         /* Assign: [todo]
-         * - to variable dx horizontal distance between cursor and current point
-         * - to variable dy horizontal distance between cursor and current point
-         * - to variable d distance in a straight line between cursor and current point,
+         * - to variable dx the horizontal distance between cursor and current point
+         * - to variable dy the vertical distance between cursor and current point
+         * - to variable d the distance in a straight line between cursor and current point,
          *   this variable is calculated using the Pythagorean theorem
          */
         var dox = this.originalPos.x - this.curPos.x;
@@ -194,7 +194,7 @@ function Point(x, y, z, size, color) {
              /* To draw a rectangle filled with the current fillStyle we use
              *  fillRect(x, y, width, height)
              *  where x, y is the upper, left corner of the rectangle.
-             *  In this case, we use this.radius * 1.5 for height and width, and
+             *  In this case, we use this.radius * 1.5 for width and height, and
              *  the upper, left vertex has coordinates (this.curPos.x + dx, this.curPos.y + dy)
              */
             ctx.fillRect(this.curPos.x + dx, this.curPos.y + dy, this.radius * 1.5, this.radius * 1.5);
@@ -214,7 +214,7 @@ function Point(x, y, z, size, color) {
     };
 }
 
-/* function makeColor is used to convert array of values
+/* function makeColor is used to convert an array of values
  * for example [196, 77, 55] into color in HSL color model.
  * More about color models you can read at:
  * http://en.wikibooks.org/wiki/Color_Models:_RGB,_HSV,_HSL
@@ -230,16 +230,17 @@ function makeColor(hslList, fade) {
 function phraseToHex(phrase) {
     // assign an empty string to hexphrase
     var hexphrase = "";
-    // for every char in parameter phrase (...)
+    // for every character in the parameter phrase (...)
     for (var i = 0; i < phrase.length; i++) {
-        // (...) add to hexphrase hexadecimal the value of this character
+        // (...) add to hexphrase the hexadecimal value of this character
         hexphrase += phrase.charCodeAt(i).toString(16);
     }
     // return converted string
     return hexphrase;
 }
 
-// this function initialize event listeners
+// this function initializes the event listeners
+// [add: something about what event listeners are]
 function initEventListeners() {
     /* this statement triggers function updateCanvasDimensions [add_line_numbers] if our page is resized by the user
      * and triggers function onMove [add_line_numbers] when the cursor is moved
@@ -316,7 +317,7 @@ function bounceBubbles() {
 
 // function draw is used to draw all points / bubbles forming the animation
 function draw(reset) {
-    // assign to local variable tmpCanvas our canvas (element at index 0 of our canvas object)
+    // assign to a local variable tmpCanvas our canvas (element at index 0 of our canvas object)
     var tmpCanvas = canvas.get(0);
 
     // if property getContext of our canvas is not defined (...)
@@ -325,14 +326,14 @@ function draw(reset) {
         return;
     }
 
-    // assign to variable ctx context of the canvas element
+    // assign to variable ctx the context of the canvas element
     ctx = tmpCanvas.getContext('2d');
     
     // statement below is used to erase everything from canvas element
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 
     /* syntax below is example of ternary operator - shorthand for if ... else construction
-     * if shape of our bubbles is not defined use "circle" shaped
+     * if shape of our bubbles is not defined use "circle" shape
      * otherwise use current shape
      */
     bubbleShape = typeof bubbleShape !== 'undefined' ? bubbleShape : "circle";
@@ -373,8 +374,8 @@ function shake() {
     }
 }
 
-/* fumction update is used to safely (only if object exist)
- * method update of pointCollection object
+/* function update is used to safely (only if object exist)
+ * update the pointCollection object
  */
 function update() {
     // if pointCollection exists (...)
@@ -384,8 +385,8 @@ function update() {
 }
 
 /* function drawName is the main function in this script, it is used to
- * draw string (parameter name) on canvas in colors defined in parameter
- * letterColors and to init event listeners
+ * draw a string (parameter name) on the canvas in colors defined in the parameter
+ * letterColors and to initialize the event listeners
  */
 function drawName(name, letterColors) {
     // trigger function updateCanvasDimensions [add_lines]
@@ -396,13 +397,13 @@ function drawName(name, letterColors) {
     var offset = 0;
 
     /* Function addLetter is used to retrieve data from alhpabet.js
-     * for given letter and transform them into Point objects.
+     * for each given letter and transform them into Point objects.
      * Before reading comments to this function it is recommended to
      * read this article -> http://www.codecademy.com/forum_questions/53385f2d52f8631f4200b18b
-     * This is only definition of function, it will be triggered later in the code.
+     * This is only the definition of the function, it will be triggered later in the code.
      */
     function addLetter(cc_hex, ix, letterCols) {
-        // if variable passed as letterCols parameter is defined (...)
+        // if the variable passed as the letterCols parameter is defined (...)
         if (typeof letterCols !== 'undefined') {
             if (Object.prototype.toString.call(letterCols) === '[object Array]' && Object.prototype.toString.call(letterCols[0]) === '[object Array]') {
                 letterColors = letterCols;
@@ -410,7 +411,7 @@ function drawName(name, letterColors) {
             if (Object.prototype.toString.call(letterCols) === '[object Array]' && typeof letterCols[0] === "number") {
                 letterColors = [letterCols];
             }
-        } else { // if variable passed as letterCols parameter is not defined (...)
+        } else { // if the variable passed as the letterCols parameter is not defined (...)
             // (...) set variable letterColors to one value (dark gray color) array
             letterColors = [[0, 0, 27]];
         }
