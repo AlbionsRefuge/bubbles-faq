@@ -429,7 +429,7 @@ function drawName(name, letterColors) {
             var chr_data = document.alphabet[cc_hex].P;
             var bc = letterColors[ix % letterColors.length];
 
-            // for every of chr_data array (...)
+            // for every element of chr_data array (...)
             for (var i = 0; i < chr_data.length; ++i) {
                 // (...) assign to variable point current element of chr_data array
                 point = chr_data[i];
