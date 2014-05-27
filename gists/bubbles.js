@@ -19,7 +19,7 @@ function PointCollection() {
     this.mousePos = new Vector(0, 0);
 
     /* properties pointCollectionX and pointCollectionY stores
-     * additional deviation to the position of the point,
+     * additional, random deviation to the position of the point,
      * initial value is 0
      */
     this.pointCollectionX = 0;
@@ -162,11 +162,11 @@ function Point(x, y, z, size, color) {
         this.velocity.y *= this.friction;
         this.curPos.y += this.velocity.y;
 
-        /* Assign: [todo]
-         * - to variable dx the horizontal distance between cursor and current point
-         * - to variable dy the vertical distance between cursor and current point
-         * - to variable d the distance in a straight line between cursor and current point,
-         *   this variable is calculated using the Pythagorean theorem
+        /* Assign:
+         * - to variable dox the horizontal distance between original and current position of point
+         * - to variable doy the vertical distance between original and current position of point
+         * - to variable d the distance in a straight line between original and current
+         *   position of point, this variable is calculated using the Pythagorean theorem
          */
         var dox = this.originalPos.x - this.curPos.x;
         var doy = this.originalPos.y - this.curPos.y;
@@ -405,52 +405,110 @@ function drawName(name, letterColors) {
     function addLetter(cc_hex, ix, letterCols) {
         // if the variable passed as the letterCols parameter is defined (...)
         if (typeof letterCols !== 'undefined') {
+            // (...) and is an array that stores array as a first element (...)
             if (Object.prototype.toString.call(letterCols) === '[object Array]' && Object.prototype.toString.call(letterCols[0]) === '[object Array]') {
+                // (...) assign to variable letterColors value passed as a parameter letterCols
                 letterColors = letterCols;
             }
-            if (Object.prototype.toString.call(letterCols) === '[object Array]' && typeof letterCols[0] === "number") {
+            // (...) or if it is an array of numbers (...)
+            else if (Object.prototype.toString.call(letterCols) === '[object Array]' && typeof letterCols[0] === "number") {
+                // (...) assign to variable letterColors array with one element inside - value of letterCols parameter
                 letterColors = [letterCols];
             }
         } else { // if the variable passed as the letterCols parameter is not defined (...)
-            // (...) set variable letterColors to one value (dark gray color) array
+            // (...) assign to variable letterColors array with one element (dark gray color) array
             letterColors = [[0, 0, 27]];
         }
-
+        
+        // if given letter (with hex code equal to parameter cc_hex) is defined in alphabet.js (...)
         if (document.alphabet.hasOwnProperty(cc_hex)) {
+            /* Assign:
+             * - to variable chr_data array of points defined in alphabet.js (property P)
+             * - to variable bc next color from letterColors array
+             */
             var chr_data = document.alphabet[cc_hex].P;
             var bc = letterColors[ix % letterColors.length];
 
+            // for every of chr_data array (...)
             for (var i = 0; i < chr_data.length; ++i) {
+                // (...) assign to variable point current element of chr_data array
                 point = chr_data[i];
 
+                /* Add to array g new Point object:
+                 * - 2d position of point is determined by values defined in alphabet.js,
+                 *   to horizontal position (point[0]) we added offset. We have done that,
+                 *   because every letter in alphabet.js is defined relatively to point (0, 0).
+                 *   Without our addition all letters would be placed at a single stack.
+                 * - z coordinate is set to (0, 0), this is initial value.
+                 * - size of point is determined by value defined in alphabet.js
+                 * - color of point is a resultant of color bc (from letterColors array) with added
+                 *   fade defined in alphabet.js. Fading is turned off by default, you can find
+                 *   more information about fading in this article ->
+                 *   http://www.codecademy.com/forum_questions/5338606c282ae3de6c007ee3
+                 */
                 g.push(new Point(point[0] + offset,
                     point[1],
                     0.0,
                     point[2],
                     makeColor(bc, point[3])));
             }
+            
+            // add to variable offset width (property W) of given letter (with hex code equal to parameter cc_hex)
             offset += document.alphabet[cc_hex].W;
         }
     }
     
-    // 
+    /* Assign to variable hexphrase result of function phraseToHex [add_lines] called with passed
+     * name as a parameter. As a result variable hexphrase will store array of letters which
+     * creates our name coded in hex values. It is important, because letters in alphabet.js are
+     * coded in this way.
+     */
     var hexphrase = phraseToHex(name);
-
-    var col_ix = -1;
+    
+    // variable col_ix stores index (in letterColors array) of next color to use
+    var col_ix = 0;
+    
+    /* For loop below is used to iterate through every letter in a hexphrase string.
+     * But, previously to iterate through every element we incremented i by 1. In this case
+     * we have to add to i 2 after every step because every letter in our array is represented
+     * by two characters (for example A is depicted as 41).
+     */
     for (var i = 0; i < hexphrase.length; i += 2) {
+        /* Variable cc_hex stores actual letter of hexphrase in format used in alphabet.js
+         * (A + hexvalue). Hexvalue is calculated by concatenating character at index i with
+         * next character (index i + 1).
+         */
         var cc_hex = "A" + hexphrase.charAt(i) + hexphrase.charAt(i + 1);
+        /* Tigger function addLetter [add_lines] to add to our animation character
+         * with hex value equal to cc_hex and color defined in letterColors at index
+         * col_ix. This operation affects value of variable g.
+         */
+        addLetter(cc_hex, col_ix, letterColors);
+        
+        /* If statement below will increment col_ix by 1 if current character
+         * is not a space (hex value 20). We have to use this code to make sure
+         * that spaces do not affects col_ix (they are invisible, so we should not
+         * 'reserve' color for them).
+         */
         if (cc_hex != "A20") {
             col_ix++;
         }
-        addLetter(cc_hex, col_ix, letterColors);
     }
     
-    
+    // for every element in array g (for every single point in our animation) (...)
     for (var j = 0; j < g.length; j++) {
-        g[j].curPos.x = (canvasWidth / 2 - offset / 2) + g[j].curPos.x;
-        g[j].curPos.y = (canvasHeight / 2 - 105) + g[j].curPos.y;
-        g[j].originalPos.x = (canvasWidth / 2 - offset / 2) + g[j].originalPos.x;
-        g[j].originalPos.y = (canvasHeight / 2 - 105) + g[j].originalPos.y;
+        /* Add to properties curPos.x and originalPos.x margin left calculated from formula:
+         * width of our canvas / 2 - width of our animation / 2. We repeat this operation for
+         * verical properties (curPos.y and originalPos.y), this time we affect vertical position
+         * but instead of using variable we hard coded `105` as a half of height of our animation, why?
+         * Because by checking values of property P[1] of every point in alphabet.js we can find out
+         * that 210 is a difference between minimal and maximal vertical value.
+         * In summary, code below is used to center your animation horizontally and vertically.
+         */
+        g[j].curPos.x += (canvasWidth / 2 - offset / 2);
+        g[j].curPos.y += (canvasHeight / 2 - 105);
+        g[j].originalPos.x += (canvasWidth / 2 - offset / 2);
+        g[j].originalPos.y += (canvasHeight / 2 - 105);
     }
 
     // assign to variable pointColletion new object of class PointCollection
