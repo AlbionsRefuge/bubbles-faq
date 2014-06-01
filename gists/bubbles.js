@@ -14,7 +14,7 @@ function Vector(x, y, z) {
 // PointCollection is a data structure used to represent all points forming our animation
 function PointCollection() {
     /* mousePos property stores coordinates of cursor
-     * predefined value is a point in upper left corner of 2d plane
+     * initial value is a point in upper left corner of 2d plane
      */
     this.mousePos = new Vector(0, 0);
 
@@ -35,10 +35,10 @@ function PointCollection() {
         // for every element in array points (...)
         for (var i = 0; i < this.points.length; i++) {
             /* Assign:
-             * - to variable point the current point (element at index i in array points)
-             * - to variable dx the horizontal distance between cursor and current point
-             * - to variable dy the vertical distance between cursor and current point
-             * - to variable d the distance in a straight line between cursor and current point,
+             * - to variable point, the current point (element at index i in array points)
+             * - to variable dx, the horizontal distance between cursor and current point
+             * - to variable dy, the vertical distance between cursor and current point
+             * - to variable d, the distance in a straight line between cursor and current point,
              *   this variable is calculated using the Pythagorean theorem
              */
             var point = this.points[i];
