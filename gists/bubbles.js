@@ -4,7 +4,7 @@ function Vector(x, y, z) {
     this.x = x;
     this.y = y;
     this.z = z;
-    // method set is used to change x and y coordinates of the given point
+    // the set method is used to change the x and y coordinates of the given point
     this.set = function (x, y) {
         this.x = x;
         this.y = y;
@@ -13,20 +13,20 @@ function Vector(x, y, z) {
 
 // PointCollection is a data structure used to represent all points forming our animation
 function PointCollection() {
-    /* the mousePos property stores coordinates of the cursor, 
-     * initial value is a point in upper left corner of 2d plane
+    /* the mousePos property stores the coordinates of the cursor, 
+     * its initial value is a point in the upper left corner of the 2d plane
      */
     this.mousePos = new Vector(0, 0);
 
-    /* the properties pointCollectionX and pointCollectionY store
-     * additional, random deviation to the position of the point,
-     * initial value is 0
+    /* the pointCollectionX and pointCollectionY properties store
+     * an additional, random deviation to the position of the point,
+     * their initial value is 0
      */
     this.pointCollectionX = 0;
     this.pointCollectionY = 0;
 
-    /* the property points stores all points forming our animation, 
-     * initial value is an empty array
+    /* the points property stores all of the points forming our animation, 
+     * its initial value is an empty array
      */
     this.points = [];
 
@@ -47,10 +47,12 @@ function PointCollection() {
             var d = Math.sqrt((dx * dx) + (dy * dy));
 
             /* Statements below are assignation operations combined with ternary operators [add_doc]
-             * If the distance between the cursor and the current point is less than 150 then assign to the property
-             * targetPos [add_lines] of the current point the difference between the current position of the point and the
-             * distance between the cursor and the current position of the point. [add_better_explanation] [optimize_code]
-             * Otherwise assign to the property targetPos [add_lines] of the current point the original position of this point.
+             * If the distance between the cursor and the current point is less than 150 then assign 
+             * to the property targetPos [add_lines] of the current point the difference between the
+             * current position of the point and the distance between the cursor and the current position 
+             * of the point. [add_better_explanation] [optimize_code]
+             * Otherwise assign to the property targetPos [add_lines] of the current point the original 
+             * position of this point.
              */
             point.targetPos.x = d < 150 ? point.curPos.x - dx : point.originalPos.x;
             point.targetPos.y = d < 150 ? point.curPos.y - dy : point.originalPos.y;
@@ -109,7 +111,7 @@ function PointCollection() {
 
             // if the reset property of the window object is set to true (...)
             if (window.reset) {
-                // (...) assign default, initial values to the variables listed below
+                // (...) assign default, initial values to the variables are listed below
                 this.pointCollectionX = 0;
                 this.pointCollectionY = 0;
                 this.mousePos = new Vector(0, 0);
