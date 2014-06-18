@@ -1,7 +1,6 @@
-Codecademy's [Animate Your Name](http://www.codecademy.com/courses/animate-your-name/0/1) - FAQ staging area
-===========
+### Codecademy's [Animate Your Name](http://www.codecademy.com/courses/animate-your-name/0/1) - FAQ staging area
 
-## The Plan
+#### The Plan
 This is the current Plan. Plans change. Changes will be reflected here.
 
 Create answers for the following questions. On CC, create a pinned post that will serve as a Table of Contents. All of these answers will be posted individually but not pinned. They will be linked to from the ToC post.
