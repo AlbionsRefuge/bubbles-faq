@@ -32,7 +32,7 @@ function PointCollection() {
 
     // the update method is used to track the position of the cursor and accordingly influence each point
     this.update = function () {
-        // for every element in array points (...)
+        // for every element in the points array (...)
         for (var i = 0; i < this.points.length; i++) {
             /* Assign:
              * - to variable point: the current point (the element at index i in the points array)
@@ -111,7 +111,7 @@ function PointCollection() {
 
             // if the reset property of the window object is set to true (...)
             if (window.reset) {
-                // (...) assign default, initial values to the variables are listed below
+                // (...) assign default, initial values to the variables as listed below
                 this.pointCollectionX = 0;
                 this.pointCollectionY = 0;
                 this.mousePos = new Vector(0, 0);
@@ -246,12 +246,15 @@ function phraseToHex(phrase) {
 // function initEventListeners initializes the event listeners
 // [add: something about what event listeners are]
 function initEventListeners() {
-    /* this statement will trigger the updateCanvasDimensions function [add_line_numbers] if our page is resized by the user
-     * and will trigger the onMove function [add_line_numbers] when the cursor is moved
+    /* this statement will trigger the updateCanvasDimensions function [add_line_numbers] if our 
+     * page is resized by the user and will trigger the onMove function [add_line_numbers] when 
+     * the cursor is moved
      */
     $(window).bind('resize', updateCanvasDimensions).bind('mousemove', onMove);
 
-    // this function will be triggered if the user touches the screen and moves their finger (for example in smartphones)
+    /* this function will be triggered if the user touches the screen and moves their finger 
+     * (for example in smartphones)
+     */
     canvas.ontouchmove = function (e) {
         // preventDefault statement terminates default action of the event [why do this?]
         e.preventDefault();
@@ -342,7 +345,7 @@ function draw(reset) {
      */
     bubbleShape = typeof bubbleShape !== 'undefined' ? bubbleShape : "circle";
 
-    // if pointCollection exist (...)
+    // if pointCollection exists (...)
     if (pointCollection) {
         // (...) trigger the draw function of the pointCollection object [add_line_numbers]
         pointCollection.draw(bubbleShape, reset);
@@ -395,7 +398,7 @@ function update() {
 function drawName(name, letterColors) {
     // trigger the updateCanvasDimensions function [add_lines]
     updateCanvasDimensions();
-    // the variable g will store all points forming our animation, initial value is an empty array
+    // the variable g will store all of the points forming our animation, initial value is an empty array
     var g = [];
     // the variable offset will store the current width of our animation
     var offset = 0;
