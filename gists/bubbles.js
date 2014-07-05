@@ -243,8 +243,11 @@ function phraseToHex(phrase) {
     return hexphrase;
 }
 
-// function initEventListeners initializes the event listeners
-// [add: something about what event listeners are]
+/* Function initEventListeners initializes the event listeners.
+ * Event listeners allow us to create an interaction between the user and the website. They are special functions
+ * that will launch defined by us code when bounded event (for example click, pressed key, move of the mouse)
+ * will occur. This allows us to give the user a ability to control animation with mouse / touch.
+ */
 function initEventListeners() {
     /* this statement will trigger the updateCanvasDimensions function [add_line_numbers] if our 
      * page is resized by the user and will trigger the onMove function [add_line_numbers] when 
