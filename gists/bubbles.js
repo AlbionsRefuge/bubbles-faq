@@ -245,8 +245,8 @@ function phraseToHex(phrase) {
 
 /* Function initEventListeners initializes the event listeners.
  * Event listeners allow us to create an interaction between the user and the website. They are special functions
- * that will launch defined by us code when bounded event (for example click, pressed key, move of the mouse)
- * will occur. This allows us to give the user a ability to control animation with mouse / touch.
+ * that will launch defined by us code when a bounded event (for example click, pressed key, move of the mouse)
+ * occurs. This allows us to give the user the ability to control animation with mouse / touch.
  */
 function initEventListeners() {
     /* this statement will trigger the updateCanvasDimensions function [add_line_numbers] if our 
