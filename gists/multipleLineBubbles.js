@@ -1,3 +1,11 @@
+/*
+To create animation with many lines you have to pass array (one element = one line) as a first parameter to function drawName, example:
+var myName = ["I", "<3", "codecademy"];
+var letterColors = [[204, 70, 53], [48, 89, 50], [6, 78, 57], [283, 39, 53]];
+drawName(myName, letterColors);
+bounceBubbles();
+*/
+
 function Vector(x, y, z) {
     this.x = x;
     this.y = y;
